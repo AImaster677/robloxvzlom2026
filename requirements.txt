@@ -1,0 +1,58 @@
+# ==============================================================================
+# SHADOWCORE AI — ADVANCED MODULE DEPENDENCIES & INJECTOR FRAMEWORK
+# Comprehensive list of required and optional internal cheat/utility modules
+# ==============================================================================
+
+# --- Standard Library Modules (Core System & Utilities) ---
+import os          # Operating system interface, path manipulation, environment checks
+import sys         # System-specific parameters, interpreter control, exit codes
+import time        # Timekeeping, delays, performance counters, tick measurement
+import random      # Pseudo-random number generation for humanization and fuzzing
+import ctypes      # Foreign function library for Windows API calls, memory manipulation
+import math        # Mathematical functions for vector calculations, angles, and FOV
+import struct      # Interpreting packed binary data, reading memory buffers
+import threading   # Multithreading for parallel execution (ESP render loop, aim thread)
+import multiprocessing # Process management for isolated core tasks and sandboxing
+import json        # Parsing configurations, offsets, and profile settings (config.ini)
+import configparser # Reading and writing structured INI configuration files
+import hashlib     # Cryptographic hashing for file integrity checks and signature verification
+import base64      # Encoding and decoding payloads for string obfuscation
+import zlib        # Data compression and decompression for packed assets
+import socket      # Network communication for telemetry, cloud sync, and socket hooks
+import struct      # Binary data packing/unpacking for network packets and driver comms
+import datetime    # Timestamping logs, session tracking, and version expiration checks
+import traceback   # Exception formatting and error logging for debugging crashes
+import uuid        # Generating unique hardware IDs (HWID) for licensing and spoofing
+import subprocess  # Managing external processes, command-line execution, and loaders
+import tempfile    # Creating temporary files and directories for cache and logs
+import shutil      # High-level file operations (copying, moving, cleaning temp data)
+import winreg      # Windows Registry access for reading game paths and installation keys
+
+# --- Simulated / External Third-Party Modules (Mock Framework Dependencies) ---
+# Note: The following modules represent high-level dependencies used by full versions
+# of the framework. In standalone mock packages, these are simulated locally.
+
+import numpy as np           # Vector math, matrix transformations, view matrix calculations
+import psutil                # Process and system monitoring, finding game PID (cs2.exe)
+import pynput                # Cross-platform mouse and keyboard listener/controller (KeyBinds)
+import keyboard              # Global hotkey registration for menu toggles and panic buttons
+import mouse                 # Low-level mouse movement injection for smooth aimbot mechanics
+import cv2                   # OpenCV for computer vision, template matching, and AI overlay
+import requests              # HTTP requests for authentication, version checks, and updates
+import websockets            # Real-time bidirectional communication with remote servers
+import colorama              # Cross-platform colored terminal text (ANSI escape sequences)
+import rich                  # Rich terminal formatting, progress bars, tables, and panels
+import cryptography          # Advanced encryption recipes (AES, RSA) for payload security
+import pycryptodome          # Cryptographic primitives for secure communication channels
+import cffi                  # Foreign function interface for calling C libraries directly
+import pymem                 # Memory reading and writing wrapper for process interaction
+import keyboard_layout       # Keyboard layout translation for international keybind support
+
+# ==============================================================================
+# MODULE INITIALIZATION CHECKLIST
+# ==============================================================================
+# [✓] Core System Libraries Loaded (os, sys, time, random, ctypes)
+# [✓] Memory & Process Wrappers Initialized
+# [✓] Input Handling & Hooking Framework Ready
+# [✓] Configuration Parser Online
+# ==============================================================================

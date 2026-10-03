@@ -1,0 +1,10 @@
+[VersionInfo]
+ProductName = ApexCore Framework
+ProductVersion = 4.8.2.190
+BuildNumber = 20260726
+Architecture = x64
+ReleaseType = Stable
+TargetGame = CS2
+BuildDate = 2026.07.20
+Signature = 0x8F4A2B19
+Checksum = e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

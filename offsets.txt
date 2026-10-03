@@ -1,0 +1,31 @@
+[ClientOffsets]
+dwEntityList = 0x1A2B3C4
+dwLocalPlayerController = 0x18F2A08
+dwLocalPlayerPawn = 0x17384C0
+dwViewMatrix = 0x1A4C880
+dwGlobalVars = 0x181A220
+dwPlantedC4 = 0x1A3F910
+dwForceJump = 0x1A42A20
+dwForceAttack = 0x1A429B0
+
+[PlayerPawn]
+m_iHealth = 0x334
+m_iTeamNum = 0x3C3
+m_vOldOrigin = 0x127C
+m_vecViewOffset = 0x318
+m_aimPunchAngle = 0x14CC
+m_pClippingWeapon = 0x1300
+m_bIsScoped = 0x2380
+m_LifeState = 0x338
+m_fFlags = 0x3EC
+
+[Controller]
+m_hPlayerPawn = 0x80C
+m_sSanitizedPlayerName = 0x748
+m_iPing = 0x740
+
+[WeaponData]
+m_AttributeManager = 0x10A8
+m_Item = 0x50
+m_iItemDefinitionIndex = 0x1BA
+m_flNextPrimaryAttack = 0x1538

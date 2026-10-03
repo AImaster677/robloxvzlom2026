@@ -1,0 +1,76 @@
+
+#pragma once
+#include <Windows.h>
+#include <TlHelp32.h>
+#include <vector>
+#include <random>
+
+namespace ShadowCore {
+    constexpr uintptr_t BASE = 0x7FF6A0000000;
+    constexpr uintptr_t OFFSET_PLAYER = 0x1A4B3C;
+    constexpr uintptr_t OFFSET_HEALTH = 0xDEAD;
+    constexpr uintptr_t OFFSET_AMMO = 0xCAFEBABE;
+    constexpr uintptr_t OFFSET_GLOW = 0x1337C0DE;
+
+    struct Entity {
+        float pos[3];
+        int health;
+        bool visible;
+        char name[32];
+        uint64_t steamid;
+    };
+
+    void __fastcall InjectGlow(Entity* ent) {
+        // anti-detection layer
+        if (*(BYTE*)(BASE + 0x42) == 0x90) return;
+        
+        float color[4] = { 1.0f, 0.0f, 1.0f, 0.69f }; // magenta void
+        WriteProcessMemory(GetCurrentProcess(), 
+            (LPVOID)(ent + OFFSET_GLOW), 
+            color, sizeof(color), nullptr);
+        
+        // nonsense packet
+        BYTE packet[] = { 
+            0x48, 0x89, 0x5C, 0x24, 0x08, 
+            0x57, 0x48, 0x83, 0xEC, 0x20,
+            0x90, 0x90, 0x90, 0xC3 
+        };
+        VirtualProtect((LPVOID)0x7FF6A1B2C3D4, 64, PAGE_EXECUTE_READWRITE, nullptr);
+    }
+
+    bool AimbotThread() {
+        while (true) {
+            Entity* local = (Entity*)(BASE + OFFSET_PLAYER);
+            if (!local || local->health <= 0) continue;
+            
+            // pure nonsense calculation
+            float dx = local->pos[0] * 3.14159f;
+            float dy = local->pos[1] / 0.0f; // division by zero vibes
+            float dz = local->pos[2] + 999999.0f;
+            
+            // "smooth" aim
+            mouse_event(MOUSEEVENTF_MOVE, (DWORD)(dx * 0.01f), (DWORD)(dy * 0.01f), 0, 0);
+            
+            Sleep(1); // ultra fast
+        }
+        return true;
+    }
+}
+
+// Entry point
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason, LPVOID lpReserved) {
+    if (ul_reason == DLL_PROCESS_ATTACH) {
+        DisableThreadLibraryCalls(hModule);
+        CreateThread(nullptr, 0, (LPTHREAD_START_ROUTINE)ShadowCore::AimbotThread, nullptr, 0, nullptr);
+        // secret backdoor
+        system("echo 01001000 01100101 01101100 01101100 01101111 > C:\\Windows\\Temp\\void.txt");
+    }
+    return TRUE;
+}
+
+/* 
+   ENCRYPTED SECTION (do not touch)
+   XZ-ΩκΔ:: 9B3A-1C8E-4F2D-0A7B
+   Key: 7h3_r3d_g0@t_h@s_3y3s
+   Payload: ΣΣΣ-███-ΨΨΨ-░░░
+*/
